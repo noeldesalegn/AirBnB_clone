@@ -3,6 +3,7 @@
 Basemodel class
 '''
 
+import models
 import uuid
 from datetime import datetime
 
@@ -12,7 +13,7 @@ class BaseModel:
     base model
     '''
 
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
         '''
         init
         '''
