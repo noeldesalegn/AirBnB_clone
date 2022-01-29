@@ -12,7 +12,7 @@ class BaseModel:
     base model
     '''
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         '''
         init
         '''
