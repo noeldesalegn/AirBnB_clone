@@ -19,7 +19,7 @@ class BaseModel:
 
     def to_dict(self):
         """Changes class instance to dictionary"""
-        dict_ = self.__dict__
+        dict_ = self.__dict__.copy()
         dict_['__class__'] = self.__class__.__name__
         dict_['updated_at'] = self.updated_at.isoformat()
         dict_['created_at'] = self.created_at.isoformat()
@@ -27,4 +27,4 @@ class BaseModel:
 
     def __str__(self):
         """return [<class name>] (<self.id>) <self.__dict__>"""
-        return f"{[self.__class__.__name__]} ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
