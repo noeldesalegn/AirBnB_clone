@@ -39,4 +39,4 @@ class BaseModel:
         '''
         return [<class name>] (<self.id>) <self.__dict__>
         '''
-        return f"{[self.__class__.__name__]} {(self.id)} {self.__dict__}"
+        return f"{[self.__class__.__name__]} ({self.id}) {self.__dict__}"
