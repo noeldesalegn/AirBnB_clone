@@ -30,8 +30,8 @@ class BaseModel:
         '''
         dict_ = self.__dict__.copy()
         dict_['__class__'] = self.__class__.__name__
-        dict_['created_at'] = self.created_at.isoformat()
         dict_['updated_at'] = self.updated_at.isoformat()
+        dict_['created_at'] = self.created_at.isoformat()
         return dict_
 
     def __str__(self):
