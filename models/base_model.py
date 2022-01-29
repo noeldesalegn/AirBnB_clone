@@ -30,10 +30,10 @@ class BaseModel:
         '''
         Changes class instance to dictionary
         '''
+        dict_['__class__'] = type(self).__name__
         dict_ = self.__dict__.copy()
         dict_['created_at'] = self.created_at.isoformat()
         dict_['updated_at'] = self.updated_at.isoformat()
-        dict_['__class__'] = type(self).__name__
         return dict_
 
     def __str__(self):
