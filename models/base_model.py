@@ -3,7 +3,6 @@
 Basemodel class
 '''
 
-import models
 import uuid
 from datetime import datetime
 
