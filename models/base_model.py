@@ -13,6 +13,17 @@ class BaseModel:
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
 
+        if len(kwargs) != 0:
+            strft = "%Y-%m-%dT%H:%M:%S.%f"
+            for key, value in kwargs.items():
+                if key != "__class__":
+                    if key in ["created_at", "updated_at"]:
+                        self.__dict__[key] = datetime.strptime(value, strft)
+                    else:
+                        self.__dict__[key] = value
+        else:
+            models.storage.new(self)
+
     def save(self):
         """Update the current datetime"""
         self.updated_at = datetime.today()
