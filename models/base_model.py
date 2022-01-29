@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-'''
-Basemodel class
-'''
+"""Basemodel class"""
 
 
 import uuid
@@ -9,9 +7,7 @@ from datetime import datetime
 
 
 class BaseModel:
-    '''
-    base model
-    '''
+    """ base model"""
       
     def __init__(self, *args, **kwargs):
             self.id = str(uuid.uuid4())
@@ -19,15 +15,11 @@ class BaseModel:
             self.updated_at = datetime.today()
 
     def save(self):
-        '''
-        update datetime
-        '''
+        """update datetime"""
         self.updated_at = datetime.today()
 
     def to_dict(self):
-        '''
-        Changes class instance to dictionary
-        '''
+        """Changes class instance to dictionary"""
         dict_ = self.__dict__.copy()
         dict_['__class__'] = self.__class__.__name__
         dict_['updated_at'] = self.updated_at.isoformat()
@@ -35,7 +27,5 @@ class BaseModel:
         return dict_
 
     def __str__(self):
-        '''
-        return [<class name>] (<self.id>) <self.__dict__>
-        '''
+        """return [<class name>] (<self.id>) <self.__dict__>"""
         return f"{[self.__class__.__name__]} ({self.id}) {self.__dict__}"
