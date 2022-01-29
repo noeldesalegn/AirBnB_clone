@@ -20,7 +20,7 @@ class BaseModel:
 
     def to_dict(self):
         """Changes class instance to dictionary"""
-        dict_ = self.__dict__.copy()
+        dict_ = self.__dict__
         dict_['__class__'] = self.__class__.__name__
         dict_['updated_at'] = self.updated_at.isoformat()
         dict_['created_at'] = self.created_at.isoformat()
