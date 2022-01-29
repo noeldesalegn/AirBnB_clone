@@ -3,6 +3,7 @@
 Basemodel class
 '''
 
+
 import uuid
 from datetime import datetime
 
@@ -11,14 +12,11 @@ class BaseModel:
     '''
     base model
     '''
-
+      
     def __init__(self):
-        '''
-        init
-        '''
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
 
     def save(self):
         '''
@@ -30,8 +28,8 @@ class BaseModel:
         '''
         Changes class instance to dictionary
         '''
-        dict_['__class__'] = type(self).__name__
         dict_ = self.__dict__.copy()
+        dict_['__class__'] = self.__class__.__name__
         dict_['created_at'] = self.created_at.isoformat()
         dict_['updated_at'] = self.updated_at.isoformat()
         return dict_
@@ -40,4 +38,4 @@ class BaseModel:
         '''
         return [<class name>] (<self.id>) <self.__dict__>
         '''
-        return f"{[type(self).__name__]} ({self.id}) {self.__dict__}"
+        return f"{[self.__class__.__name__]} ({self.id}) {self.__dict__}"
