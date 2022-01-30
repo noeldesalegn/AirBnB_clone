@@ -10,7 +10,7 @@ from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
-    """Test for BaseModel class"""
+    """Test for BaseModels class"""
 
     def test_doc_module(self):
         """Module documentation"""
