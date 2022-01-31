@@ -6,7 +6,7 @@ import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
 
     def do_EOF(self, line):
         """EOF to quit"""
